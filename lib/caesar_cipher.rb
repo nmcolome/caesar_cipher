@@ -1,4 +1,5 @@
 class CaesarCipher
+
   def abc
     ("A".."Z").to_a
   end
@@ -7,7 +8,11 @@ class CaesarCipher
     new_abc = abc.rotate(-shift)
     msg = text.upcase.split("")
 
-    encoded_msg = msg.map do |letter|
+    transformer(msg, new_abc).join("")
+  end
+
+  def transformer(msg, new_abc)
+    msg.map do |letter|
       if abc.rindex(letter).nil?
         letter
       else
@@ -15,7 +20,6 @@ class CaesarCipher
         new_abc[index]
       end
     end
-
-    encoded_msg.join("")
   end
+
 end
