@@ -23,3 +23,10 @@ class CaesarCipher
   end
 
 end
+
+print "What is the message you want to encode? > "
+text = gets.chomp
+print "How much do you want to shift? > "
+shift = gets.chomp.to_i
+cipher = CaesarCipher.new
+p cipher.encode(text, shift)
